@@ -3,7 +3,7 @@ const app = express();
 const homeRouter = require("./routes/homeRouter");
 require('dotenv').config();
 
-app.set("view-engine", "ejs");
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", homeRouter);

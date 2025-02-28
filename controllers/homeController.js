@@ -5,16 +5,16 @@ async function getAllMangaHandler(req, res) {
     res.render("index", { manga_books });
 }
 
-async function getMangaByIdHandler(req,res) {
+async function getMangaByIdHandler(req, res) {
     try {
         const manga = await getMangaById(req.params.id);
-        if(manga) {
-            res.render("manga" , {manga})
+        if (manga) {
+            res.render("manga", { manga })
         } else {
             res.status(404).send("Manga not found");
         }
     } catch (error) {
-        console.error("Error fetching manga: " , error);
+        console.error("Error fetching manga: ", error);
         res.status(505).send("Internal Server Error");
     }
 }
