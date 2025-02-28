@@ -19,3 +19,8 @@ async function getMangaByIdHandler(req,res) {
         res.status(505).send("Internal Server Error");
     }
 }
+
+module.exports = {
+    getAllMangaHandler,
+    getMangaByIdHandler
+}
