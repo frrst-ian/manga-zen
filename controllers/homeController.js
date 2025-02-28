@@ -8,7 +8,7 @@ async function getAllMangaHandler(req, res) {
 
 async function getMangaByIdHandler(req,res) {
     try {
-        const manga = await getMangaByIdHandler(req.params.id);
+        const manga = await getMangaById(req.params.id);
         if(manga) {
             res.render("manga" , {manga})
         } else {
