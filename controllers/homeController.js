@@ -3,7 +3,6 @@ const db = require("../db/queries")
 async function getAllMangaHandler(req, res) {
     const manga_books = await db.getAllManga();
     res.render("index", { manga_books });
-
 }
 
 async function getMangaByIdHandler(req,res) {

@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const homeRouter = Router();
-const homeController = ("../controllers/homeController");
+const homeController = require("../controllers/homeController");
 
-homeRouter.get("/", getAllMangaHandler);
-homeRouter.get("/manga/:id", getMangaByIdHandler);
+homeRouter.get("/", homeController.getAllMangaHandler);
+homeRouter.get("/manga/:id", homeController.getMangaByIdHandler);
 
 module.exports = homeRouter;
