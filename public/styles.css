@@ -56,10 +56,30 @@ h6 {
   isolation: isolate;
 }
 
+body {
+    min-height: 100vh;
+    width: 100%;
+}
 
+h1 {
+    text-align: center;
+}
+
+.manga-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    gap: 12px;
+}
+
+.manga-item {
+    width: 300px;
+}
 
 ul {
     list-style-type: none;
+    margin-right: 44px;
 }
 
 

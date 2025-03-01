@@ -7,16 +7,29 @@
     <title>Manga Collection</title>
   </head>
   <body>
+    <header>
+      <div class="container">
+        <div class="logo"></div>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <h1>Manga Collection</h1>
-    <div class="manga-list">
-      <ul>
+    <ul>
+      <div class="manga-list">
         <% mangaList.forEach(manga => { %>
         <div class="manga-item">
           <li><%= manga.name %></li>
           <li><%= manga.published_year %></li>
+          <a href="/more-info">More Information</a>
         </div>
         <% }); %>
-      </ul>
-    </div>
+      </div>
+    </ul>
   </body>
 </html>
