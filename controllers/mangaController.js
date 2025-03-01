@@ -1,12 +1,18 @@
 const db = require("../db/queries");
 
 async function getAllMangaHandler(req, res) {
-    const manga = await db.getAllManga()
-    // const SQLQuery = (`SELECT * FROM manga_books where id = $1`)
-    // const { rows } = pool.query(SQLQuery, [id]);
-    res.render("/manga", { manga });
+    try {
+        const mangaList = await db.getAllManga();
+        
+        if (mangaList) {
+            res.render("manga", { mangaList });
+        } else {
+            res.status(404).send("Manga not found");
+        }
+    } catch (err) {
+        console.error("Error fetching manga" , err)
+        res.status(500).send("Internal server error");
+    }
 }
 
-module.exports = {
-    getAllMangaHandler,
-}
+module.exports = { getAllMangaHandler };

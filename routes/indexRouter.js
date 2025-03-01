@@ -1,16 +1,17 @@
 const { Router } = require("express");
-const homeRouter = Router();
-const homeController = require("../controllers/homeController");
-const mangaController = require("../controllers/mangaController");
-const genreController = require("../controllers/genreController");
-const addMangaController = require("../controllers/addMangaController");
-const addGenreController = require("../controllers/addGenreController")
+const indexRouter = Router();
+const indexController = require("../controllers/indexController");
+// const genreController = require("../controllers/genreController");
+// const addMangaController = require("../controllers/addMangaController");
+// const addGenreController = require("../controllers/addGenreController")
 
-homeRouter.get("/", homeController.getIndex);
-homeRouter.get("/genres", genreController.getAllGenres);
-homeRouter.get("/genre/:id", genreController.getMangaByGenre);
-homeRouter.get("/genre/:id/manga-info", genreController.getMangaInfo)
-homeRouter.get("/manga", mangaController.getAllManga);
-homeRouter.get("/manga/:id", mangaController.getMangaById);
-homeRouter.get("/add-manga", addMangaController.addManga);
-homeRouter.get("/add-genre", addGenreController.addGenre);
+// indexRouter.get("/genres", genreController.getAllGenres);
+// indexRouter.get("/genre/:id", genreController.getMangaByGenre);
+// indexRouter.get("/genre/:id/manga-info", genreController.getMangaInfo)
+indexRouter.get("/", indexController.getIndex);
+
+// indexRouter.get("/manga/:id", mangaController.getMangaById);
+// indexRouter.get("/add-manga", addMangaController.addManga);
+// indexRouter.get("/add-genre", addGenreController.addGenre);
+
+module.exports = indexRouter;
