@@ -17,6 +17,7 @@ async function getAllGenreHandler(req, res) {
 
 async function getGenreByIdHandler(req, res) {
     const genres = await db.getGenreById(req.params.id);
+    
     res.render("genre-id.ejs", { genres });
 }
 

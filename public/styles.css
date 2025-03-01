@@ -65,7 +65,7 @@ h1 {
     text-align: center;
 }
 
-.manga-list,.genre-list {
+.manga-list,.genre-list,.manga-list-filtered {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@ h1 {
     gap: 12px;
 }
 
-.genre-list {
+.genre-list, .manga-list-filtered {
   flex-direction: column;
 }
 

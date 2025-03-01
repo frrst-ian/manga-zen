@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= genres.genre_name %> | Manga Zen</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo"></div>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home </a>
+              <a href="/manga">Manga</a>
+              <a href="/genres">Genre</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1><%=genres.genre_name %></h1>
+    <ul>
+      <div class="manga-list">
+        <li><%= genres.manga_name%> </li>
+      </div>
+    </ul>
+  </body>
 </html>

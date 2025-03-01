@@ -17,7 +17,7 @@ LEFT JOIN authors a ON ma.author_id = a.author_id
 LEFT JOIN genres g ON mg.genre_id = g.genre_id
 GROUP BY mb.id, mb.name, mb.published_year;`);
     const { rows } = await pool.query(SQLQuery);
-    return rows[0]
+    return rows[0];
 }
 
 async function getAllGenre() {
@@ -26,17 +26,21 @@ async function getAllGenre() {
     return rows;
 }
 
-async function getGenreById() {
+async function getGenreById(id) {
     const SQLQuery = (`SELECT g.genre_id, g.genre_name ,
        string_agg(DISTINCT mb.name, ', ') as manga_name
 FROM manga_books mb
 LEFT JOIN manga_genres mg ON mb.id = mg.id
 LEFT JOIN genres g ON mg.genre_id = g.genre_id
-GROUP BY g.genre_id, g.genre_name;;
+WHERE g.genre_id = $1
+GROUP BY g.genre_id, g.genre_name;
+
 `);
-    const { rows } = await pool.query(SQLQuery);
+    const { rows } = await pool.query(SQLQuery , [id]);
     return rows[0];
 }
+
+
 
 module.exports = {
     getAllManga,
