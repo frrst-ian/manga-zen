@@ -28,14 +28,13 @@ async function getAllGenre() {
 }
 
 async function getGenreById(id) {
-    const SQLQuery = (`SELECT g.genre_id, g.genre_name ,
-       string_agg(DISTINCT mb.name, ', ') as manga_name
+    const SQLQuery = (`SELECT g.genre_id, g.genre_name,
+        string_agg(DISTINCT mb.name, (',' )) as manga_name
 FROM manga_books mb
 LEFT JOIN manga_genres mg ON mb.id = mg.id
 LEFT JOIN genres g ON mg.genre_id = g.genre_id
 WHERE g.genre_id = $1
-GROUP BY g.genre_id, g.genre_name;
-
+GROUP BY g.genre_id, g.genre_name  ;
 `);
     const { rows } = await pool.query(SQLQuery , [id]);
     return rows[0];
@@ -46,7 +45,6 @@ GROUP BY g.genre_id, g.genre_name;
 module.exports = {
     getAllManga,
     getMangaById,
-
     getAllGenre,
     getGenreById
 }
