@@ -3,35 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles.css">
-    <title><%= genres.genre_name %> | Manga Zen</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <title><%= currentGenre.genre_name %> | Manga Zen</title>
   </head>
   <body>
     <header>
       <div class="container">
         <div class="logo"></div>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home </a>
-              <a href="/manga">Manga</a>
-              <a href="/genres">Genre</a>
-            </li>
-          </ul>
-        </nav>
+        <div class="nav-margin"></div>
+        <%- include('navbar', {links:links}) %>
       </div>
     </header>
-    <h1> <%= genres.genre_name %></h1>
+    <h2><%= currentGenre.genre_name %></h2>
     <ul>
-      <div class="manga-list"> <% const manga = genres.manga_name %> <%  const mangaArr=  manga.split(',') %>
-        <% mangaArr.forEach(mg => { %>
-            <div class="manga-item">
-              <li><%= mg %></li>
-              <a href="manga/manga-id/<%= manga.id %>">More Information</a>
-            </div>
-       <% }); %>
+      <div class="manga-list">
+        <% manga_books.forEach(manga => { %>
+        <div class="manga-item">
+          <li><%= manga.name %></li>
+          <li><%= manga.published_year %></li>
+          <li><%= manga.authors%></li>
+        </div>
+        <% }) %>
       </div>
     </ul>
-
   </body>
 </html>

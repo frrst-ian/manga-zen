@@ -1,9 +1,9 @@
-const { Router } = require("express");
-const mangaRouter = Router();
+const express = require("express");
+const mangaRouter = express.Router();
 const mangaController = require("../controllers/mangaController");
 
-mangaRouter.get("/manga", mangaController.getAllMangaHandler);
-mangaRouter.get("/manga/manga-id/:id" , mangaController.getMangaByIdHandler)
+mangaRouter.get("/", mangaController.getAllMangaHandler);
+mangaRouter.get("/:id", mangaController.getMangaByIdHandler)
 
 
 module.exports = mangaRouter;

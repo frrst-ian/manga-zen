@@ -4,30 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Manga Zen - Genre</title>
+    <title>Genre | Manga Zen</title>
   </head>
   <body>
+    <h1>Manga Genres</h1>
     <header>
       <div class="container">
         <div class="logo"></div>
-        <nav>
-          <ul>
-            <li>
-              <a href="/"> Home </a>
-              <a href="/manga">Manga</a>
-              <a href="/genres">Genres</a>
-            </li>
-          </ul>
-        </nav>
+        <%- include('navbar', {links:links}) %>
       </div>
     </header>
-    <h1>Manga Genres</h1>
     <ul>
       <div class="genre-list">
         <% genres.forEach(genre => { %>
         <div class="genres-item">
           <li>
-            <a href="genres/genre-id/<%=genre.genre_id%>"><%=genre.genre_name%></a>
+            <a href="genres/<%=genre.genre_id%>"><%=genre.genre_name%></a>
           </li>
         </div>
         <%}) %>

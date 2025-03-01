@@ -1,11 +1,22 @@
 const db = require("../db/queries");
 
+const links = [
+
+    {
+        href: "/", text: "Home",
+    },
+    { href: "/manga", text: "Manga", },
+    {
+        href: "/genres", text: "Genres"
+    }
+]
+
 async function getAllMangaHandler(req, res) {
     try {
         const mangaList = await db.getAllManga();
 
         if (mangaList) {
-            res.render("manga", { mangaList });
+            res.render("manga", { mangaList , links:links  });
         } else {
             res.status(404).send("Manga not found");
         }
@@ -20,7 +31,7 @@ async function getMangaByIdHandler(req, res) {
         const manga = await db.getMangaById(req.params.id);
 
         if (manga) {
-            res.render("manga-id", { manga });
+            res.render("manga-id", { manga ,links:links });
         } else {
             res.status(404).send("Manga not found");
         }

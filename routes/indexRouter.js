@@ -4,6 +4,8 @@ const indexController = require("../controllers/indexController");
 // const addMangaController = require("../controllers/addMangaController");
 // const addGenreController = require("../controllers/addGenreController")
 
+
+
 // indexRouter.get("/genre/:id/manga-info", genreController.getMangaInfo)
 indexRouter.get("/", indexController.getIndex);
 

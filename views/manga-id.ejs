@@ -3,25 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Manga - <%= manga.name %></title>
   </head>
   <body>
     <header>
       <div class="container">
         <div class="logo"></div>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home </a>
-              <a href="/manga">Manga</a>
-              <a href="/genres">Genre</a>
-            </li>
-          </ul>
-        </nav>
+        <div class="nav-margin"></div>
+        <%- include('navbar', {links:links}) %>
       </div>
     </header>
-    <div class="container">
-      <div><h2><%= manga.name %></h2></div>
+    <div class="manga-list-filtered">
+      <div>
+        <h2><%= manga.name %></h2>
+      </div>
       <div><%= manga.published_year%></div>
       <div>Author: <%= manga.authors%></div>
       <div>Genre: <%= manga.genres%></div>

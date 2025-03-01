@@ -4,31 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
-    <title>Manga Collection</title>
+    <title>Manga | Manga Zen</title>
   </head>
   <body>
     <header>
       <div class="container">
+        <h1>Manga Collection</h1>
         <div class="logo"></div>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home </a>
-              <a href="/manga">Manga</a>
-              <a href="/genres">Genre</a>
-            </li>
-          </ul>
-        </nav>
+        <%- include('navbar', {links:links}) %>
       </div>
     </header>
-    <h1>Manga Collection</h1>
     <ul>
       <div class="manga-list">
         <% mangaList.forEach(manga => { %>
         <div class="manga-item">
           <li><%= manga.name %></li>
           <li><%= manga.published_year %></li>
-          <a href="/manga/manga-id/<%= manga.id %>">More Information</a>
+          <a href="/manga/<%= manga.id %>">View Details</a>
         </div>
         <% }); %>
       </div>

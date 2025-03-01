@@ -57,35 +57,51 @@ h6 {
 }
 
 body {
-    min-height: 100vh;
-    width: 100%;
+  min-height: 100vh;
+  width: 100%;
 }
 
+h2 {
+  text-align: center;
+  margin: 20px;
+}
 h1 {
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
-.manga-list,.genre-list,.manga-list-filtered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    gap: 12px;
+.manga-list,
+.genre-list,
+.manga-list-filtered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  gap: 12px;
 }
 
-.genre-list, .manga-list-filtered {
+.genre-list,
+.manga-list-filtered {
   flex-direction: column;
 }
 
+.genre-list{
+  margin: 50px 0px 0px 150px;
+}
+
 .manga-item {
-    width: 300px;
+  width: 300px;
+  border: 2px solid gray;
 }
 
 ul {
-    list-style-type: none;
-    margin-right: 44px;
+  list-style-type: none;
+  margin-right: 44px;
+
+  display: flex;
+  gap: 20px;
 }
 
-
-
-
+.nav-margin {
+  margin-top: 48px;
+}
