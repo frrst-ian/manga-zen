@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles.css" />
-    <title>Manga Zen</title>
+    <title>Manga Zen - Genre</title>
   </head>
   <body>
     <header>
@@ -23,5 +22,15 @@
         </nav>
       </div>
     </header>
+    <h1>Manga Genres</h1>
+    <ul>
+      <div class="genre-list">
+        <% genres.forEach(genre => { %>
+        <div class="genres-item">
+          <li><%=genres.genre_name%></li>
+        </div>
+        <%}) %>
+      </div>
+    </ul>
   </body>
 </html>
