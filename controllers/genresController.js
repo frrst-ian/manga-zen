@@ -5,7 +5,7 @@ async function getAllGenreHandler(req, res) {
         const genres = await db.getAllGenre();
 
         if (genres) {
-            res.render("genres", { genres });
+            res.render("genres.ejs", { genres });
         } else {
             res.status(404).send("Genres not found");
         }
@@ -16,8 +16,8 @@ async function getAllGenreHandler(req, res) {
 }
 
 async function getGenreByIdHandler(req, res) {
-    const genres = await db.getGenreById();
-    res.render("genres-id", { genres });
+    const genres = await db.getGenreById(req.params.id);
+    res.render("genre-id.ejs", { genres });
 }
 
 module.exports = {

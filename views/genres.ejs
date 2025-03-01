@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Manga Zen - Genre</title>
   </head>
   <body>
     <header>
       <div class="container">
-        <div class="logo">
-          <h1>Manga Zen</h1>
-        </div>
+        <div class="logo"></div>
         <nav>
           <ul>
             <li>
@@ -27,7 +26,9 @@
       <div class="genre-list">
         <% genres.forEach(genre => { %>
         <div class="genres-item">
-          <li><%=genres.genre_name%></li>
+          <li>
+            <a href="genres/genre-id/<%=genre.genre_id%>"><%=genre.genre_name%></a>
+          </li>
         </div>
         <%}) %>
       </div>

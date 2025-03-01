@@ -65,12 +65,16 @@ h1 {
     text-align: center;
 }
 
-.manga-list {
+.manga-list,.genre-list {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
     gap: 12px;
+}
+
+.genre-list {
+  flex-direction: column;
 }
 
 .manga-item {
