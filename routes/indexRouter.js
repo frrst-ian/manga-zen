@@ -10,7 +10,6 @@ const indexController = require("../controllers/indexController");
 // indexRouter.get("/genre/:id/manga-info", genreController.getMangaInfo)
 indexRouter.get("/", indexController.getIndex);
 
-// indexRouter.get("/manga/:id", mangaController.getMangaById);
 // indexRouter.get("/add-manga", addMangaController.addManga);
 // indexRouter.get("/add-genre", addGenreController.addGenre);
 

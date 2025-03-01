@@ -11,8 +11,10 @@ app.set("view engine", "ejs");
 app.use(express.static(assetsPath))
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", indexRouter);
+app.use("/", indexRouter);
 app.get("/manga", mangaRouter);
+app.get("/manga/manga-id/:id", mangaRouter);
+
 
 
 const PORT = process.env.PORT || 3000;

@@ -6,6 +6,14 @@ async function getAllManga() {
     return rows;
 }
 
+async function getMangaById(id) {
+    const SQLQuery = (``);
+    const { rows } = await pool.query(SQLQuery, [id]);
+    return rows[0]
+    
+}
+
 module.exports = {
-    getAllManga
+    getAllManga,
+    getMangaById
 }
