@@ -18,10 +18,16 @@ LEFT JOIN genres g ON mg.genre_id = g.genre_id
 GROUP BY mb.id, mb.name, mb.published_year;`);
     const { rows } = await pool.query(SQLQuery);
     return rows[0]
+}
 
+async function getAllGenre() {
+    const SQLQuery = (`SELECT * FROM genres ORDER by genres.genre_name`);
+    const {rows} = await pool.query(SQLQuery);
+    return rows;
 }
 
 module.exports = {
     getAllManga,
-    getMangaById
+    getMangaById,
+    getAllGenre
 }

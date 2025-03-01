@@ -10,4 +10,4 @@ async function getGenreByIdHandler(req, res) {
     res.render("genres-id", { genres });
 }
 
-module.exports = { getAllGenreHandler, getGenreByIdHandler }
+module.exports = { getAllGenreHandler, getGenreByIdHandler };
