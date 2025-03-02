@@ -21,7 +21,7 @@ async function getGenreByIdHandler(req, res) {
     const manga_books = await db.getGenreById(genreId)
     const genres = await db.getAllGenre();
     const currentGenre = (genres.find(genre => genre.genre_id == genreId))
-    res.render("genre-id.ejs", { manga_books, currentGenre , links:links });
+    res.render("genre-id.ejs", { manga_books, currentGenre , links:navigationLinks });
 }
 
 

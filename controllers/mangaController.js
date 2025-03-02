@@ -21,7 +21,7 @@ async function getMangaByIdHandler(req, res) {
         const manga = await db.getMangaById(req.params.id);
 
         if (manga) {
-            res.render("manga-id", { manga, links: links });
+            res.render("manga-id", { manga, links: navigationLinks });
         } else {
             res.status(404).send("Manga not found");
         }
