@@ -1,16 +1,8 @@
-const links = [
+const { navigationLinks } = require('../utils/constants');
 
-    {
-        href: "/", text: "Home",
-    },
-    { href: "/manga", text: "Manga", },
-    {
-        href: "/genres", text: "Genres"
-    }
-]
 
 async function getIndex(req, res) {
-    res.render("index", { links: links });
+    res.render("index", { links: navigationLinks });
 }
 
 module.exports = { getIndex };

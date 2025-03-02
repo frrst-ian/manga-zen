@@ -1,21 +1,12 @@
 const db = require("../db/queries");
-const links = [
-
-    {
-        href: "/", text: "Home",
-    },
-    { href: "/manga", text: "Manga", },
-    {
-        href: "/genres", text: "Genres"
-    }
-]
+const { navigationLinks } = require('../utils/constants');
 
 async function getAllGenreHandler(req, res) {
     try {
         const genres = await db.getAllGenre();
 
         if (genres) {
-            res.render("genres.ejs", { genres,links:links});
+            res.render("genres.ejs", { genres,links:navigationLinks});
         } else {
             res.status(404).send("Genres not found");
         }
