@@ -14,6 +14,7 @@ const indexRouter = require("./routes/indexRouter");
 const mangaRouter = require("./routes/mangaRouter");
 const genresRouter = require("./routes/genresRouter");
 const addMangaRouter = require("./routes/addMangaRouter");
+const addGenreRouter = require("./routes/addGenreRouter");
 
 // Get the assets path ,esp. public
 const assetsPath = path.join(__dirname, "public");
@@ -33,6 +34,7 @@ app.use("/", indexRouter);
 app.use("/manga", mangaRouter);
 app.use("/genres", genresRouter);
 app.use("/add-manga", addMangaRouter);
+app.use("/add-genre" , addGenreRouter);
 
 // Error handling
 app.use((err, req, res, next) => {
