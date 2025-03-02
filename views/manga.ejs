@@ -14,20 +14,21 @@
         <%- include('navbar', {links:links}) %>
       </div>
     </header>
-    <ul>
+
+    <main>
       <div class="manga-list">
         <% mangaList.forEach(manga => { %>
         <div class="manga-item">
           <img
-            src="<%= manga.image_path%>"
+            src="<%= manga.image_path %>"
             alt="<%= manga.name %> cover photo"
           />
-          <li><%= manga.name %></li>
-          <li><%= manga.published_year %></li>
+          <h2><%= manga.name %></h2>
+          <p>Published: <%= manga.published_year %></p>
           <a href="/manga/<%= manga.id %>">View Details</a>
         </div>
         <% }); %>
       </div>
-    </ul>
+    </main>
   </body>
 </html>

@@ -11,8 +11,8 @@
     </div>
     <form method="post" action="/add-manga" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="manga_name"> Manga Name </label>
-        <input type="text" name="manga_name" id="manga_name" required />
+        <label for="name"> Manga Name </label>
+        <input type="text" name="name" id="name" required />
       </div>
 
       <div class="form-group">
@@ -26,10 +26,28 @@
       </div>
 
       <div class="form-group">
+        <label>Genres:</label>
+        <div class="genres-container">
+            <% if (genres && genres.length) { %>
+                <% genres.forEach((genre) => { %>
+                    <label class="genre-checkbox">
+                        <input type="checkbox" 
+                               name="genres[]" 
+                               value="<%= genre.genre_name %>">
+                        <%= genre.genre_name %>
+                    </label>
+                <% }); %>
+            <% } else { %>
+                <p>No genres available. Please add genres first.</p>
+            <% } %>
+        </div>
+    </div>
+
+      <div class="form-group">
         <label for="image_path">Cover Photo</label>
         <input
           type="file"
-          name="image-path"
+          name="image_path"
           id="image_path"
           accept="image/*"
           required

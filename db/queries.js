@@ -18,7 +18,6 @@ LEFT JOIN genres g ON mg.genre_id = g.genre_id
 WHERE mb.id = $1
 GROUP BY mb.id, mb.name, mb.published_year, mb.image_path;`);
     const { rows } = await pool.query(SQLQuery, [id]);
-    console.log(rows[0])
     return rows[0];
 }
 
@@ -45,34 +44,43 @@ GROUP BY mb.id, mb.name, mb.published_year, mb.image_path;
 }
 
 // Method for adding new Manga
-async function addManga(manga_name, published_year, image_path, genre_names, author_name) {
+async function addManga(name, published_year, image_path, genres, author_name) {
     const client = await pool.connect();
 
     try {
         await client.query('BEGIN');
 
-        const mangaInsert = await client.query('INSERT INTO manga_books(manga_name, published_year,image_path) VALUES($1,$2,$3) RETURNING id ',
-            [manga_name, published_year, image_path]);
+        const mangaInsert = await client.query('INSERT INTO manga_books(name, published_year,image_path) VALUES($1,$2,$3) RETURNING id ',
+            [name, published_year, image_path]);
 
         const mangaId = mangaInsert.rows[0].id;
 
-        for (const genre_name of genre_names) {
+          // Handle genres
+          for (const genre_name of genres) {
+            const genreResult = await client.query(
+                'SELECT genre_id FROM genres WHERE genre_name = $1',
+                [genre_name]
+            );
 
-            const genreResult = await client.query('SELECT genre_id FROM genres WHERE genre_name = $1', [genre_name]);
-            if (genreResult.rows.length == 0) {
-                throw new Error(`Genre ${genre_name} does not exist`);
+            if (!genreResult.rows[0]) {
+                throw new Error(`Invalid genre: ${genre_name}`);
             }
-            const genreId = genreResult.rows[0].genre_id;
-            await client.query('INSERT INTO manga_genres($1 , $2) VALUES ($1, $2) ', [mangaId, genreId]);
+
+            // Link manga to genre
+            await client.query(
+                `INSERT INTO manga_genres (id, genre_id)
+                 VALUES ($1, $2)`,
+                [mangaId, genreResult.rows[0].genre_id]
+            );
         }
 
-        await client.query('INSERT INTO authors(author_name) VALUES ($1) ON CONFLICT (author_name) DO NOTHING,'[author_name]);
+        await client.query('INSERT INTO authors(author_name) VALUES ($1)',[author_name]);
 
-        const authorResult = await client.query('SELECT author_id FROM authors WHERE author_name = $1');
+        const authorResult = await client.query('SELECT author_id FROM authors WHERE author_name = $1',[author_name]);
 
         const authorId = authorResult.rows[0].author_id;
 
-        await client.query('INSERT INTO manga_authors($1 , $2) VALUES ($1, $2) ', [mangaId, authorId]);
+        await client.query('INSERT INTO manga_authors(id , author_id) VALUES ($1, $2) ', [mangaId, authorId]);
 
         await client.query('COMMIT');
 

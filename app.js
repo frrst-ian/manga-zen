@@ -7,6 +7,7 @@ const indexRouter = require("./routes/indexRouter");
 const mangaRouter = require("./routes/mangaRouter");
 const genresRouter = require("./routes/genresRouter");
 const addMangaRouter = require("./routes/addMangaRouter");
+const multer = require('multer')
 
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
@@ -16,7 +17,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/manga", mangaRouter);
 app.use("/genres", genresRouter);
-app.use("/add-manga" , addMangaRouter)
+app.use("/add-manga", addMangaRouter);
+
+// Add this error handler after your routes
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return res.status(400).send(`File upload error: ${err.message}`);
+  }
+  res.status(500).send(err.message);
+});
 
 
 const PORT = process.env.PORT || 3000;

@@ -1,13 +1,11 @@
 const express = require("express");
 const addMangaRouter = express.Router();
 const addMangaController = require("../controllers/addMangaController");
-const { navigationLinks } = require('../utils/constants');
+const upload = require('../middleware/upload');
 
-addMangaRouter.get("/", (req, res) => {
-    res.render("manga-form" , {title: "Add New Manga"});
 
-})
+addMangaRouter.get("/", addMangaController.renderMangaForm);
 
-addMangaRouter.post("/", addMangaController.addMangaHandler)
+addMangaRouter.post("/", upload.single('image_path'), addMangaController.addMangaHandler)
 
 module.exports = addMangaRouter;

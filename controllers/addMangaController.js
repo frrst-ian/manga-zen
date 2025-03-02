@@ -4,11 +4,10 @@ const path = require('node:path');
 
 async function addMangaHandler(req, res) {
     try {
-        const { manga_name, published_year, genre_names, author_name } = req.body;
+        const { name, published_year, genres, author_name } = req.body;
 
         const image_path = `/manga/images/${req.file.filename}`;
-
-        await db.addManga(manga_name, published_year, image_path, genre_names, author_name);
+        await db.addManga(name, published_year, image_path, genres, author_name);
         res.redirect("/");
     } catch (err) {
         console.error("Error adding manga", err);
@@ -16,4 +15,9 @@ async function addMangaHandler(req, res) {
     }
 }
 
-module.exports = { addMangaHandler };
+async function renderMangaForm(req, res) {
+    const genres = await db.getAllGenre();
+    res.render("manga-form", { title: 'Add New Manga', genres: genres })
+}
+
+module.exports = { addMangaHandler, renderMangaForm };

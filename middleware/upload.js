@@ -17,12 +17,12 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
         const fileExt = path.extname(file.originalname);
-        cb(null, `book-${uniqueSuffix}${fileExt}`);
+        cb(null, `manga-${uniqueSuffix}${fileExt}`);
 
     }
 })
 
-const fileFilter = (req, res, cb) => {
+const fileFilter = (req, file, cb) => {
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
 
     if (allowedTypes.includes(file.mimetype)) {
