@@ -8,7 +8,6 @@ const mangaRouter = require("./routes/mangaRouter");
 const genresRouter = require("./routes/genresRouter");
 const addMangaRouter = require("./routes/addMangaRouter");
 
-
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.use(express.static(assetsPath))
