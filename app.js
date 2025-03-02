@@ -34,7 +34,7 @@ app.use("/", indexRouter);
 app.use("/manga", mangaRouter);
 app.use("/genres", genresRouter);
 app.use("/add-manga", addMangaRouter);
-app.use("/add-genre" , addGenreRouter);
+app.use("/add-genre", addGenreRouter);
 
 // Error handling
 app.use((err, req, res, next) => {
