@@ -6,6 +6,7 @@ const assetsPath = path.join(__dirname, "public");
 const indexRouter = require("./routes/indexRouter");
 const mangaRouter = require("./routes/mangaRouter");
 const genresRouter = require("./routes/genresRouter");
+const addMangaRouter = require("./routes/addMangaRouter");
 
 
 app.set("views", path.join(__dirname, "views"));
@@ -15,7 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
 app.use("/manga", mangaRouter);
-app.use("/genres", genresRouter)
+app.use("/genres", genresRouter);
+app.use("/add-manga" , addMangaRouter)
 
 
 const PORT = process.env.PORT || 3000;
