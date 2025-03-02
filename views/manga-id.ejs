@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
-    <title>Manga - <%= manga.name %></title>
+    <title> <%= manga.name %> </title>
   </head>
   <body>
     <header>
@@ -16,6 +16,7 @@
     </header>
     <div class="manga-list-filtered">
       <div>
+        <img src="<%= manga.image_path%>" alt="<%= manga.name %> cover photo" />
         <h2><%= manga.name %></h2>
       </div>
       <div><%= manga.published_year%></div>

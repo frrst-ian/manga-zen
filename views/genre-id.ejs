@@ -19,9 +19,14 @@
       <div class="manga-list">
         <% manga_books.forEach(manga => { %>
         <div class="manga-item">
+          <img
+            src="<%= manga.image_path%>"
+            alt="<%= manga.name %> cover photo"
+          />
           <li><%= manga.name %></li>
           <li><%= manga.published_year %></li>
           <li><%= manga.authors%></li>
+          <a href="/manga/<%= manga.id%>">View Details</a>
         </div>
         <% }) %>
       </div>

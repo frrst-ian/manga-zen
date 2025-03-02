@@ -90,7 +90,7 @@ h1 {
 }
 
 .manga-item {
-  width: 300px;
+  /* width: 300px; */
   border: 2px solid gray;
 }
 
@@ -104,4 +104,15 @@ ul {
 
 .nav-margin {
   margin-top: 48px;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+}
+
+img {
+  width: 270px;
+  height: 400px;
+  object-fit: fill;
 }
