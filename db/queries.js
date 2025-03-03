@@ -98,6 +98,12 @@ async function addGenre(genre_name) {
 
 }
 
+// Error handling
+async function checkMangaExist(name) {
+    const result = await pool.query("SELECT name FROM manga_books WHERE name = $1", [name]);
+    return result.rows.length > 0;
+}
+
 
 module.exports = {
     getAllManga,
@@ -105,5 +111,6 @@ module.exports = {
     getAllGenre,
     getGenreById,
     addManga,
-    addGenre
+    addGenre,
+    checkMangaExist
 }
