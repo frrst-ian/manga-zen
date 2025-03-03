@@ -12,10 +12,10 @@ async function addMangaHandler(req, res) {
         const checkMangaExistResult = await db.checkMangaExist(name);
         if (!checkMangaExistResult) {
             await db.addManga(name, published_year, image_path, genres, author_name);
+            res.redirect("/");
         } else {
-            console.log("Manga already exist.")
+            res.render("error");
         }
-        res.redirect("/");
     } catch (err) {
         console.error("Error adding manga", err);
         res.status(500).send("Internal Server Error");
