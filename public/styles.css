@@ -116,17 +116,31 @@ a span {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  padding: 20px;
+  padding: 50px;
+}
+
+.manga-item h2 {
+  font-size: 1.8em;
+}
+
+.item-footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
 }
 
 .manga-item {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 15px;
+  padding: 35px;
   text-align: center;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
+
+  display: flex;
+  flex-direction: column;
+
 }
 
 .manga-item:hover {
@@ -216,7 +230,7 @@ a span {
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 

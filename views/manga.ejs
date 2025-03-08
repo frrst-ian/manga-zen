@@ -24,8 +24,10 @@
             alt="<%= manga.name %> cover photo"
           />
           <h2><%= manga.name %></h2>
-          <p>Published: <%= manga.published_year %></p>
-          <a href="/manga/<%= manga.id %>">View Details</a>
+          <div class="item-footer">
+            <p>Published: <%= manga.published_year %></p>
+            <a href="/manga/<%= manga.id %>">View Details</a>
+          </div>
         </div>
         <% }); %>
       </div>
