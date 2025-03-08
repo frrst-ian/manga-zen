@@ -7,7 +7,7 @@ async function getAllManga() {
 }
 
 async function getMangaById(id) {
-    const SQLQuery = (`SELECT mb.id, mb.name, mb.published_year,mb.image_path,
+    const SQLQuery = (`SELECT mb.id, mb.name, mb.published_year,mb.description,mb.image_path,
 string_agg(DISTINCT a.author_name,', ') as authors,
 string_agg(DISTINCT g.genre_name,', ') as genres
 FROM manga_books mb
@@ -16,7 +16,7 @@ LEFT JOIN manga_genres mg ON mb.id = mg.id
 LEFT JOIN authors a ON ma.author_id = a.author_id
 LEFT JOIN genres g ON mg.genre_id = g.genre_id
 WHERE mb.id = $1
-GROUP BY mb.id, mb.name, mb.published_year, mb.image_path;`);
+GROUP BY mb.id, mb.name, mb.published_year,mb.description, mb.image_path;`);
     const { rows } = await pool.query(SQLQuery, [id]);
     return rows[0];
 }
@@ -29,7 +29,7 @@ async function getAllGenre() {
 
 async function getGenreById(genreId) {
     const SQLQuery = (`
-SELECT mb.id, mb.name, mb.published_year,mb.image_path,
+SELECT mb.id, mb.name, mb.published_year,mb.description, mb.image_path,
 string_agg(DISTINCT a.author_name,', ') as authors
 FROM manga_books mb
 LEFT JOIN manga_authors ma ON mb.id = ma.id
@@ -37,21 +37,21 @@ LEFT JOIN manga_genres mg ON mb.id = mg.id
 LEFT JOIN authors a ON ma.author_id = a.author_id
 LEFT JOIN genres g ON mg.genre_id = g.genre_id
 WHERE g.genre_id = $1
-GROUP BY mb.id, mb.name, mb.published_year, mb.image_path;
+GROUP BY mb.id, mb.name, mb.published_year,mb.description, mb.image_path;
 `);
     const { rows } = await pool.query(SQLQuery, [genreId]);
     return rows;
 }
 
 // Method for adding new Manga
-async function addManga(name, published_year, image_path, genres, author_name) {
+async function addManga(name, published_year,description, image_path, genres, author_name) {
     const client = await pool.connect();
 
     try {
         await client.query('BEGIN');
 
-        const mangaInsert = await client.query('INSERT INTO manga_books(name, published_year,image_path) VALUES($1,$2,$3) RETURNING id ',
-            [name, published_year, image_path]);
+        const mangaInsert = await client.query('INSERT INTO manga_books(name, published_year,description , image_path) VALUES($1,$2,$3,$4) RETURNING id ',
+            [name, published_year,description, image_path]);
 
         const mangaId = mangaInsert.rows[0].id;
 
