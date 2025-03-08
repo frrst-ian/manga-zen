@@ -114,7 +114,7 @@ a span {
 /* ===== Manga List ===== */
 .manga-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -268,4 +268,12 @@ a span {
 
 .closebtn:hover {
   color: black;
+}
+
+.manga-list-filtered {
+  display: flex
+;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
