@@ -6,12 +6,12 @@ const path = require('node:path');
 
 async function addMangaHandler(req, res) {
     try {
-        const { name, published_year, genres, author_name } = req.body;
+        const { name, published_year,description, genres, author_name } = req.body;
 
         const image_path = `/manga/images/${req.file.filename}`;
         const checkMangaExistResult = await db.checkMangaExist(name);
         if (!checkMangaExistResult) {
-            await db.addManga(name, published_year, image_path, genres, author_name);
+            await db.addManga(name, published_year,description, image_path, genres, author_name);
             res.redirect("/");
         } else {
             res.render("error");
