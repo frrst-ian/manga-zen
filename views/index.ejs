@@ -8,13 +8,24 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="logo">
-          <h1>Manga Zen</h1>
-        </div>
-        <%- include('navbar', {links:links}) %>
-      </div>
+      <div class="navbar"><%- include('navbar', {links:links}) %></div>
     </header>
-    <h1>WELCOME!</h1>
+    <main>
+      <section class="left">
+        <h1>Manga Zen</h1>
+        <p class="text-italic">Discover your favorite manga.</p>
+      </section>
+
+      <section class="right">
+        <div class="wrapper">
+          <div class="img-wrapper a"><img src="/berserk.jpg" alt="berserk panel"></div>
+          <div class="img-wrapper b">
+            <img src="/vagabond.jpg" alt="vagabond panel" />
+          </div>
+          <div class="img-wrapper c">C</div>
+          <div class="img-wrapper d">D</div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

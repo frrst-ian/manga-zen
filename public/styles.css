@@ -1,4 +1,4 @@
-/* ===== Global Reset ===== */
+@import url("https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Inter:400");
 *,
 *::before,
 *::after {
@@ -15,11 +15,12 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 img,
@@ -67,48 +68,141 @@ h6 {
   isolation: isolate;
 }
 
-/* ===== Typography ===== */
+:root {
+  --text: #dfece4;
+  --background: #060908;
+  --primary: #9edcbe;
+  --secondary: #366d64;
+  --accent: #6ba6a8;
+  --static: rgb(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Space Grotesk";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+}
+
 h1 {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 2.5rem;
-  color: #2c3e50;
+  font-size: 4.21rem; /* 67.36px */
 }
 
 h2 {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 2rem;
-  color: #34495e;
+  font-size: 3.158rem; /* 50.56px */
 }
 
-/* ===== Layout ===== */
-.container {
-  width: 90%;
-  max-width: 1200px;
+h3 {
+  font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+  font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+  font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+  font-size: 0.75rem; /* 12px */
+}
+
+/* navbar */
+.navbar {
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
+  position: fixed;
+  z-index: 9997;
+  border-bottom: 1px solid var(--static);
 }
 
-/* ===== Navigation ===== */
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-li {
-  margin-right: 10px;
-}
-
-a {
+a.header-text {
   text-decoration: none;
-  color: #333;
+  color: var(--text);
 }
 
-a span {
-  font-weight: bold;
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 58px;
+}
+
+/*Home page body*/
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+section.left {
+  margin: 0px 0px 48px 48px;
+}
+
+section.right {
+  margin: 48px 0px 0px 38px;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 200px 200px 300px;
+  height: 400px;
+}
+
+.img-wrapper {
+  background-color: #2c3e50;
+  border-radius: 5px;
+}
+
+.a {
+  grid-column: 1 / span 2;
+}
+
+.a > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.b {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+.b > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.c {
+  grid-column: 1;
+  grid-row: 2;
+}
+.d {
+  grid-column: 2;
+  grid-row: 2;
 }
 
 /* ===== Manga List ===== */
@@ -173,6 +267,7 @@ a span {
   background-color: #3498db;
   color: white;
   text-decoration: none;
+
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -272,6 +367,3 @@ a span {
   justify-content: center;
   align-items: center;
 }
-
-
-
