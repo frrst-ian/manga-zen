@@ -6,6 +6,12 @@
     <title><%= title %> | Manga Zen</title>
   </head>
   <body>
+    <% if (errorMessage) { %>
+      <%- include('partials/error-message', {
+        errorMessage: errorMessage,
+        redirectUrl: redirectUrl
+      }) %>
+    <% } %>
     <div class="main">
       <h1><%= title %></h1>
     </div>

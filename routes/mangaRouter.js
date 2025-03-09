@@ -8,6 +8,7 @@ mangaRouter.get("/:id", mangaController.getMangaByIdHandler);
 mangaRouter.get("/:id/update", mangaController.mangaUpdateHandler);
 mangaRouter.post("/:id/update", upload.single('image_path'), mangaController.updateMangaHandler);
 mangaRouter.post("/:id/delete" , mangaController.deleteMangaHandler);
+mangaRouter.get("/:id/delete/confirm", mangaController.deleteConfirmation)
 
 
 module.exports = mangaRouter;
