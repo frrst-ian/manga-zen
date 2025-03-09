@@ -44,19 +44,19 @@ GROUP BY mb.id, mb.name, mb.published_year,mb.description, mb.image_path;
 }
 
 // Method for adding new Manga
-async function addManga(name, published_year,description, image_path, genres, author_name) {
+async function addManga(name, published_year, description, image_path, genres, author_name) {
     const client = await pool.connect();
 
     try {
         await client.query('BEGIN');
 
         const mangaInsert = await client.query('INSERT INTO manga_books(name, published_year,description , image_path) VALUES($1,$2,$3,$4) RETURNING id ',
-            [name, published_year,description, image_path]);
+            [name, published_year, description, image_path]);
 
         const mangaId = mangaInsert.rows[0].id;
 
-          // Handle genres
-          for (const genre_name of genres) {
+        // Handle genres
+        for (const genre_name of genres) {
             const genreResult = await client.query(
                 'SELECT genre_id FROM genres WHERE genre_name = $1',
                 [genre_name]
@@ -74,9 +74,9 @@ async function addManga(name, published_year,description, image_path, genres, au
             );
         }
 
-        await client.query('INSERT INTO authors(author_name) VALUES ($1)',[author_name]);
+        await client.query('INSERT INTO authors(author_name) VALUES ($1)', [author_name]);
 
-        const authorResult = await client.query('SELECT author_id FROM authors WHERE author_name = $1',[author_name]);
+        const authorResult = await client.query('SELECT author_id FROM authors WHERE author_name = $1', [author_name]);
 
         const authorId = authorResult.rows[0].author_id;
 
@@ -95,7 +95,18 @@ async function addManga(name, published_year,description, image_path, genres, au
 // Method for adding new genre 
 async function addGenre(genre_name) {
     await pool.query('INSERT INTO genres(genre_name) VALUES($1)', [genre_name]);
+}
 
+// Method for updating manga in the db
+async function mangaUpdate(id, name, published_year, description) {
+    const SQLQuery = (`UPDATE manga_books 
+                       SET name = $2,
+                        published_year = $3,
+                        description = $4
+                       WHERE id = $1` )
+    const { rows } = await pool.query(SQLQuery, [id, name, published_year, description])
+    console.log("rows:", rows[0]);
+    return rows[0];
 }
 
 // Error handling
@@ -105,6 +116,8 @@ async function checkMangaExist(name) {
 }
 
 
+
+
 module.exports = {
     getAllManga,
     getMangaById,
@@ -112,5 +125,6 @@ module.exports = {
     getGenreById,
     addManga,
     addGenre,
+    mangaUpdate,
     checkMangaExist
 }

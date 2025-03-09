@@ -31,7 +31,22 @@ async function getMangaByIdHandler(req, res) {
     }
 }
 
+async function mangaUpdateHandler(req, res) {
+    try {
+        const id = req.params.id;
+        const manga = await db.getMangaById(id);
+        res.render("update-form", { manga, links: navigationLinks, title: "Update Manga" })
+    } catch (err) {
+        console.error("Error fetching manga", err);
+        res.status(500).send("Internal Server Error");
+
+    }
+}
+
+
 module.exports = {
     getAllMangaHandler,
-    getMangaByIdHandler
+    getMangaByIdHandler,
+    mangaUpdateHandler
+
 };
