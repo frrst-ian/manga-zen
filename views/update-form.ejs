@@ -16,7 +16,13 @@
     >
       <div class="form-group">
         <label for="name"> Manga Name </label>
-        <input type="text" name="name" id="name" value="<%= manga.name%>" required />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value="<%= manga.name%>"
+          required
+        />
       </div>
 
       <div class="form-group">
@@ -43,24 +49,24 @@
       <div class="form-group">
         <label>Genres:</label>
         <div class="genres-container">
-          <input type="checkbox" 
-                name="genres[]" 
-                value="<%= genre.genre_name %>"
-                <% if (manga.genres && manga.genres.includes(genre.genre_name)) { %>checked<% } %>>
+          <% genres.forEach(genre => { %>
+          <label class="genre-checkbox">
+            <input type="checkbox" name="genres[]" value="<%= genre.genre_name
+            %>"
+            <% if (manga.genres && manga.genres.includes(genre.genre_name)) { %>checked<% } %>>
+            <%= genre.genre_name %>
+          </label>
+          <% }); %>
         </div>
       </div>
 
       <div class="form-group">
         <label for="image_path">Cover Photo</label>
-        <input
-          type="file"
-          name="image_path"published_year
-          id="image_path"
-          accept="image/*"
-          value="<%= manga.image_path %>"
-          required
-        />
-        <small>Max size 5MB. Accepted formats: JPG, JPEG, PNG</small>
+        <input type="file" name="image_path" id="image_path" accept="image/*" />
+        <small
+          >Max size 5MB. Accepted formats: JPG, JPEG, PNG. Leave empty to keep
+          current image.</small
+        >
       </div>
 
       <div class="form-group">
@@ -69,7 +75,8 @@
           type="text"
           name="author_name"
           id="author_name"
-          value="<%= manga.author_name required %>"
+          value="<%= manga.authors %>"
+          required
         />
       </div>
       <button type="submit" class="btn btn-primary">Update</button>

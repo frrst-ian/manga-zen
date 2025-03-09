@@ -97,18 +97,97 @@ async function addGenre(genre_name) {
     await pool.query('INSERT INTO genres(genre_name) VALUES($1)', [genre_name]);
 }
 
-// Method for updating manga in the db
-async function mangaUpdate(id, name, published_year, description) {
-    const SQLQuery = (`UPDATE manga_books 
+async function mangaUpdate(id, name, published_year, description, image_path, genres, author_name) {
+    const client = await pool.connect();
+    
+    try {
+        await client.query('BEGIN');
+        
+        // Update basic manga info
+        let SQLQuery;
+        let params;
+        
+        if (image_path) {
+            SQLQuery = `UPDATE manga_books 
                        SET name = $2,
-                        published_year = $3,
-                        description = $4
-                       WHERE id = $1` )
-    const { rows } = await pool.query(SQLQuery, [id, name, published_year, description])
-    console.log("rows:", rows[0]);
-    return rows[0];
+                           published_year = $3,
+                           description = $4,
+                           image_path = $5
+                       WHERE id = $1`;
+            params = [id, name, published_year, description, image_path];
+        } else {
+            SQLQuery = `UPDATE manga_books 
+                       SET name = $2,
+                           published_year = $3,
+                           description = $4
+                       WHERE id = $1`;
+            params = [id, name, published_year, description];
+        }
+        
+        await client.query(SQLQuery, params);
+        
+        // If genres are provided, update them
+        if (genres && genres.length) {
+            // Remove existing genre associations
+            await client.query('DELETE FROM manga_genres WHERE id = $1', [id]);
+            
+            // Add new genre associations
+            for (const genre_name of genres) {
+                const genreResult = await client.query(
+                    'SELECT genre_id FROM genres WHERE genre_name = $1',
+                    [genre_name]
+                );
+                
+                if (genreResult.rows[0]) {
+                    await client.query(
+                        'INSERT INTO manga_genres (id, genre_id) VALUES ($1, $2)',
+                        [id, genreResult.rows[0].genre_id]
+                    );
+                }
+            }
+        }
+        
+        // If author_name is provided, update it
+        if (author_name) {
+            // Check if author exists
+            let authorResult = await client.query(
+                'SELECT author_id FROM authors WHERE author_name = $1',
+                [author_name]
+            );
+            
+            let authorId;
+            if (authorResult.rows.length === 0) {
+                // Create new author
+                await client.query(
+                    'INSERT INTO authors (author_name) VALUES ($1)',
+                    [author_name]
+                );
+                
+                authorResult = await client.query(
+                    'SELECT author_id FROM authors WHERE author_name = $1',
+                    [author_name]
+                );
+            }
+            
+            authorId = authorResult.rows[0].author_id;
+            
+            // Update manga_authors table
+            await client.query('DELETE FROM manga_authors WHERE id = $1', [id]);
+            await client.query(
+                'INSERT INTO manga_authors (id, author_id) VALUES ($1, $2)',
+                [id, authorId]
+            );
+        }
+        
+        await client.query('COMMIT');
+        
+    } catch (err) {
+        await client.query('ROLLBACK');
+        throw err;
+    } finally {
+        client.release();
+    }
 }
-
 // Error handling
 async function checkMangaExist(name) {
     const result = await pool.query("SELECT name FROM manga_books WHERE name = $1", [name]);
