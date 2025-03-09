@@ -48,7 +48,6 @@ async function updateMangaHandler(req, res) {
         const id = req.params.id;
         const { name, published_year, description, genres, author_name } = req.body;
 
-        // Handle file upload if a new image is provided
         let image_path = null;
         if (req.file) {
             image_path = `/manga/images/${req.file.filename}`;
@@ -66,6 +65,6 @@ module.exports = {
     getAllMangaHandler,
     getMangaByIdHandler,
     mangaUpdateHandler,
-    updateMangaHandler
+    updateMangaHandler,
 };
 

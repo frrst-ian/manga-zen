@@ -3,7 +3,6 @@ const mangaRouter = express.Router();
 const mangaController = require("../controllers/mangaController");
 const upload = require('../middleware/upload');
 
-
 mangaRouter.get("/", mangaController.getAllMangaHandler);
 mangaRouter.get("/:id", mangaController.getMangaByIdHandler);
 mangaRouter.get("/:id/update", mangaController.mangaUpdateHandler);
