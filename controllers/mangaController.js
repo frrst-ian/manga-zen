@@ -61,10 +61,21 @@ async function updateMangaHandler(req, res) {
     }
 }
 
+async function deleteMangaHandler(req, res) {
+    try {
+        const manga = await db.getMangaById(id);
+        await db.deleteManga(id);
+        res.redirect("/");
+    } catch (err) {
+
+    }
+}
+
 module.exports = {
     getAllMangaHandler,
     getMangaByIdHandler,
     mangaUpdateHandler,
     updateMangaHandler,
+    deleteMangaHandler
 };
 
