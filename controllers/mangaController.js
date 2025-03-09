@@ -63,8 +63,7 @@ async function updateMangaHandler(req, res) {
 
 async function deleteMangaHandler(req, res) {
     try {
-        const manga = await db.getMangaById(id);
-        await db.deleteManga(id);
+        await db.deleteManga(req.params.id);
         res.redirect("/");
     } catch (err) {
 
