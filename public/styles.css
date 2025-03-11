@@ -427,15 +427,22 @@ form.manga-wrapper {
   justify-content: center;
 }
 
-button.btn.btn-primary,
-button.cancel {
+button.btn.btn-primary {
+  color: #000;
   width: 100%;
   padding: 4px;
 }
 
-button.cancel > a{
-color: #000;
+a.btn-cancel {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
+
 
 .error-container {
   margin: 20px auto;
