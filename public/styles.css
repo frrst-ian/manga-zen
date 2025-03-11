@@ -130,6 +130,7 @@ small {
   margin: 0 auto;
   padding: 16px;
   position: fixed;
+  background-color: var(--background);
   z-index: 9997;
   border-bottom: 1px solid var(--static);
 }
@@ -281,12 +282,12 @@ section.right {
   border-radius: 5px;
 }
 
-/* ===== Manga List ===== */
 .manga-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  height: 665px;
+  padding: 70px;
   gap: 20px;
-  padding: 50px;
 }
 
 .manga-item h2 {
@@ -311,6 +312,7 @@ section.right {
 
   display: flex;
   flex-direction: column;
+  flex: 0 1 calc(25% - 1em);
 }
 
 .manga-item:hover {
