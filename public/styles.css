@@ -363,24 +363,32 @@ main.genres {
   gap: 48px;
 }
 
-ul.genres {
-  display: none;
-}
-
-.genre-list {
-  gap: 10px;
+.genre-list  {
   margin-top:120px ;
 }
 
-.genre-list a {
-  color: #2c3e50;
+.genres-item > a {
+  font-size: 1.7rem;
+  color: var(--text);
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  
 }
 
-.genre-list a:hover {
-  color: #3498db;
+.genre-list a.effect-shine:hover {
+  color: var(--primary);
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
+}
+
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  
+  to {
+    -webkit-mask-position: -50%;
+  }
 }
 
 /* ===== Utility Classes ===== */
