@@ -75,6 +75,11 @@ h6 {
   --secondary: #366d64;
   --accent: #6ba6a8;
   --static: rgb(255, 255, 255, 0.1);
+
+  --d: 2500ms;
+  --angle: 90deg;
+  --c1: #6ba6a8;
+  --c2: rgba(168, 239, 255, 0.1);
 }
 
 body {
@@ -152,12 +157,18 @@ main {
   gap: 48px;
 }
 
-.text-italic {
+.h1.logo {
+  background: -webkit-linear-gradient(#9edcbe, #366d64 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.para.sub-text {
   font-style: italic;
 }
 
 section.left {
-  margin: 0px 0px 48px 48px;
+  margin: 0px 0px 68px 48px;
 }
 
 section.right {
@@ -169,11 +180,40 @@ section.right {
   grid-gap: 10px;
   grid-template-columns: 200px 200px 300px;
   height: 400px;
+  width: 630px;
+  border-radius: 5px;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: true;
 }
 
 .img-wrapper {
-  background-color: #2c3e50;
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.img-wrapper:hover {
+  transform: scale(1.1);
+  border-radius: 0px;
+  border: 0.3rem solid;
+  border-image: conic-gradient(
+      from var(--angle),
+      var(--c2),
+      var(--c1) 0.1turn,
+      var(--c1) 0.15turn,
+      var(--c2) 0.25turn
+    )
+    30;
+  animation: borderRotate var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
 }
 
 .a {
@@ -186,6 +226,7 @@ section.right {
   object-fit: cover;
   border-radius: 5px;
 }
+
 .b {
   grid-column: 3;
   grid-row: 1 / span 2;
@@ -196,13 +237,29 @@ section.right {
   object-fit: cover;
   border-radius: 5px;
 }
+
 .c {
   grid-column: 1;
   grid-row: 2;
 }
+
+.c > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .d {
   grid-column: 2;
   grid-row: 2;
+}
+
+.d > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 /* ===== Manga List ===== */
