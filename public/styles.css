@@ -124,6 +124,10 @@ small {
   font-size: 0.75rem; /* 12px */
 }
 
+a {
+  text-decoration: none;
+}
+
 /* navbar */
 .navbar {
   width: 100%;
@@ -136,7 +140,6 @@ small {
 }
 
 a.header-text {
-  text-decoration: none;
   color: var(--text);
   position: relative;
 }
@@ -165,8 +168,6 @@ ul {
   justify-content: center;
   gap: 58px;
 }
-
-/*Home page body*/
 
 main {
   width: 100%;
@@ -344,7 +345,6 @@ section.right {
   padding: 8px 12px;
   background-color: #3498db;
   color: white;
-  text-decoration: none;
 
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -363,20 +363,23 @@ main.genres {
   gap: 48px;
 }
 
-.genre-list  {
-  margin-top:120px ;
+.genre-list {
+  margin-top: 120px;
 }
 
 .genres-item > a {
   font-size: 1.7rem;
   color: var(--text);
-  text-decoration: none;
-  
 }
 
 .genre-list a.effect-shine:hover {
   color: var(--primary);
-  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 70%
+  );
   -webkit-mask-size: 200%;
   animation: shine 2s infinite;
 }
@@ -385,46 +388,55 @@ main.genres {
   from {
     -webkit-mask-position: 150%;
   }
-  
+
   to {
     -webkit-mask-position: -50%;
   }
 }
 
-/* ===== Utility Classes ===== */
-.text-center {
-  text-align: center;
+h1.manga-form-title {
+  font-size: 2.5rem;
 }
 
-.mt-20 {
-  margin-top: 20px;
+main.wrapper.manga-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 700px;
+  margin-top: 70px;
+  width: 100%;
 }
 
-.mb-20 {
-  margin-bottom: 20px;
+form.manga-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
 }
 
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-  .manga-list {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
-  .genre-list {
-    margin: 20px 0;
-    align-items: center;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* Error handling */
+.form-group.last {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+button.btn.btn-primary,
+button.cancel {
+  width: 100%;
+  padding: 4px;
+}
+
+button.cancel > a{
+color: #000;
+}
+
 .error-container {
   margin: 20px auto;
   max-width: 600px;
