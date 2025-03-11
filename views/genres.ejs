@@ -7,23 +7,20 @@
     <title>Genres | Manga Zen</title>
   </head>
   <body>
-    <h1>Manga Genres</h1>
     <header>
-      <div class="container">
+      <div class="navbar">
         <div class="logo"></div>
         <%- include('navbar', {links:links}) %>
       </div>
     </header>
-    <ul>
+    <main class="genres">
       <div class="genre-list">
         <% genres.forEach(genre => { %>
         <div class="genres-item">
-          <li>
-            <a href="genres/<%=genre.genre_id%>"><%=genre.genre_name%></a>
-          </li>
+          <a href="genres/<%=genre.genre_id%>"><%=genre.genre_name%></a>
         </div>
         <%}) %>
       </div>
-    </ul>
+    </main>
   </body>
 </html>
