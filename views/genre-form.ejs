@@ -7,13 +7,19 @@
     <title>Add Genre | Manga Zen</title>
   </head>
   <body>
-    <form action="/add-genre" method="post">
-      <div class="form-group">
-        <label for="genre_name">Genre Name</label>
-        <input type="text" name="genre_name" id="genre_name" />
-      </div>
-      <button type="submit" class="btn btn-primary">Add Genre</button>
-      <a href="/">Cancel</a>
-    </form>
+    <main class="wrapper genre-form">
+      <h1 class="genre-form-title">Add New Genre</h1>
+
+      <form class="genre-wrapper" action="/add-genre" method="post">
+        <div class="form-group">
+          <label for="genre_name">Genre Name:</label>
+          <input type="text" name="genre_name" id="genre_name" required />
+        </div>
+        <div class="form-group last">
+          <button type="submit" class="btn btn-primary">Add Genre</button>
+          <a class="btn-cancel" href="/"><div>Cancel</div></a>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

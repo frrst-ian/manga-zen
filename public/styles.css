@@ -394,7 +394,8 @@ main.genres {
   }
 }
 
-h1.manga-form-title {
+h1.manga-form-title,
+h1.genre-form-title {
   font-size: 2.5rem;
 }
 
@@ -443,6 +444,22 @@ a.btn-cancel {
   color: black;
 }
 
+main.wrapper.genre-form {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form.genre-wrapper {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 44px;
+}
 
 .error-container {
   margin: 20px auto;
