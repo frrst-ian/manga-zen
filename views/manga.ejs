@@ -8,27 +8,25 @@
   </head>
   <body>
     <header>
-      <div class="navbar">
-        <%- include('navbar', {links:links}) %>
-      </div>
+      <div class="navbar"><%- include('navbar', {links:links}) %></div>
     </header>
 
-    <main>
-        <div class="manga-list">
-          <% mangaList.forEach(manga => { %>
-          <div class="manga-item">
-            <img
-              src="<%= manga.image_path %>"
-              alt="<%= manga.name %> cover photo"
-            />
-            <h2><%= manga.name %></h2>
-            <div class="item-footer">
-              <p>Published: <%= manga.published_year %></p>
-              <a href="/manga/<%= manga.id %>">View Details</a>
-            </div>
+    <main class="manga">
+      <div class="manga-list">
+        <% mangaList.forEach(manga => { %>
+        <div class="manga-item">
+          <img
+            src="<%= manga.image_path %>"
+            alt="<%= manga.name %> cover photo"
+          />
+          <h2><%= manga.name %></h2>
+          <div class="item-footer">
+            <p>Published: <%= manga.published_year %></p>
+            <a href="/manga/<%= manga.id %>">View Details</a>
           </div>
-          <% }); %>
         </div>
+        <% }); %>
+      </div>
     </main>
   </body>
 </html>
