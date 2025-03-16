@@ -7,6 +7,12 @@
     <title>Add Genre | Manga Zen</title>
   </head>
   <body>
+    <% if (errorMessage) { %>
+      <%- include('partials/error-message', {
+        errorMessage: errorMessage,
+        redirectUrl: redirectUrl
+      }) %>
+    <% } %>
     <main class="wrapper genre-form">
       <h1 class="genre-form-title">Add New Genre</h1>
 

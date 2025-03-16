@@ -4,7 +4,6 @@ const { navigationLinks } = require('../utils/constants');
 async function getAllGenreHandler(req, res) {
     try {
         const genres = await db.getAllGenre();
-
         if (genres) {
             res.render("genres.ejs", { genres,links:navigationLinks});
         } else {
