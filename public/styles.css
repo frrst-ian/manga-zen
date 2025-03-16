@@ -70,7 +70,7 @@ h6 {
 
 :root {
   --text: #dfece4;
-  --text-secondary:#020617;
+  --text-secondary: #020617;
   --background: #060908;
   --primary: #9edcbe;
   --secondary: #366d64;
@@ -344,7 +344,6 @@ main.manga {
   color: var(--text);
 }
 
-
 .manga-item a {
   display: inline-block;
   margin-top: 6px;
@@ -435,22 +434,6 @@ form.manga-wrapper {
   justify-content: center;
 }
 
-button.btn.btn-primary {
-  color: #000;
-  width: 100%;
-  padding: 4px;
-}
-
-a.btn-cancel {
-  width: 100%;
-  background-color: white;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-}
-
 main.wrapper.genre-form {
   height: 700px;
   width: 100%;
@@ -505,4 +488,54 @@ form.genre-wrapper {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+input {
+  border: 2px solid transparent;
+  padding: 2px 8px 2px 8px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+  color: var(--text);
+  background-color: var(--static);
+}
+
+input:hover,
+input:focus,
+.form-group:hover input {
+  outline: none;
+  border-color: var(--accent);
+}
+
+button.btn.btn-primary {
+  width: 100%;
+  color: var(--text-secondary);
+
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button.btn.btn-primary:hover {
+  background-color: var(--primary);
+}
+
+a.btn-cancel {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--static);
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+}
+
+a.btn-cancel:hover{
+  background-color: var(--secondary);
 }
