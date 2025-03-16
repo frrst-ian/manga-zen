@@ -451,36 +451,44 @@ form.genre-wrapper {
   margin-bottom: 44px;
 }
 
-.error-container {
-  margin: 20px auto;
-  max-width: 600px;
+main.wrapper.genre-form {
+  position: relative;
 }
 
 .alert {
   padding: 15px;
   border: 1px solid #ffeb3b;
   border-radius: 4px;
-  background-color: #fff9c4;
-  color: #000;
-  position: relative;
-}
-
-.alert.warning {
-  border-color: #ffeb3b;
-  background-color: #fff9c4;
-}
-
-.closebtn {
+  background-color: var(--static);
+  color: var(--text);
   position: absolute;
-  top: 5px;
+  top: 100px;
+
+  min-width: 255px;
+
+}
+
+.error-wrapper.left {
+  display: flex;
+  gap: 12px;
+  margin-right: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
   right: 10px;
   font-size: 20px;
   cursor: pointer;
 }
 
-.closebtn a {
-  text-decoration: none;
+.close-btn a {
   color: inherit;
+}
+
+main.wrapper.manga-form > .alert {
+  top: 20px;
+  z-index: 9999;
 }
 
 .manga-list-filtered {
@@ -538,4 +546,8 @@ a.btn-cancel {
 
 a.btn-cancel:hover{
   background-color: var(--secondary);
+}
+
+button {
+  cursor: pointer;
 }

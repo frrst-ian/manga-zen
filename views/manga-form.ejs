@@ -7,13 +7,13 @@
     <title><%= title %> | Manga Zen</title>
   </head>
   <body>
-    <% if (errorMessage) { %>
-      <%- include('partials/error-message', {
-        errorMessage: errorMessage,
-        redirectUrl: redirectUrl
-      }) %>
-    <% } %>
     <main class="wrapper manga-form">
+      <% if (errorMessage) { %>
+        <%- include('partials/error-message', {
+          errorMessage: errorMessage,
+          redirectUrl: redirectUrl
+        }) %>
+      <% } %>
       <h1 class="manga-form-title"><%= title %> </h1>
       <form class="manga-wrapper" method="post" action="/add-manga" enctype="multipart/form-data">
         <div class="form-group">
