@@ -8,29 +8,28 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="logo"></div>
-        <div class="nav-margin"></div>
-        <%- include('navbar', {links:links}) %>
-      </div>
+      <div class="navbar"><%- include('navbar', {links:links}) %></div>
     </header>
-    <h2><%= currentGenre.genre_name %></h2>
-    <ul>
-      <div class="manga-list">
-        <% manga_books.forEach(manga => { %>
-        <div class="manga-item">
-          <img
-            src="<%= manga.image_path%>"
-            alt="<%= manga.name %> cover photo"
-          />
-          <li><%= manga.name %></li>
-          <li><%= manga.published_year %></li>
-          <li><%= manga.description%> </li>
-          <li><%= manga.authors%></li>
-          <a href="/manga/<%= manga.id%>">View Details</a>
+    <main class="manga genre">
+      <% if (manga_books && manga_books.length > 0) { %>
+        <div class="manga-list genre">
+          <% manga_books.forEach(manga => { %>
+            <div class="manga-item">
+              <img
+                src="<%= manga.image_path %>"
+                alt="<%= manga.name %> cover photo"
+              />
+              <h2><%= manga.name %></h2>
+              <div class="item-footer">
+                <p>Published: <%= manga.published_year %></p>
+                <a href="/manga/<%= manga.id %>">View Details</a>
+              </div>
+            </div>
+          <% }); %>
         </div>
-        <% }) %>
-      </div>
-    </ul>
+      <% } else { %>
+        <p class="no-manga-txt">Nothing here.</p>
+      <% } %>
+    </main>
   </body>
 </html>

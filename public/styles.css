@@ -465,7 +465,6 @@ main.wrapper.genre-form {
   top: 100px;
 
   min-width: 255px;
-
 }
 
 .error-wrapper.left {
@@ -537,17 +536,31 @@ a.btn-cancel {
   justify-content: center;
   align-items: center;
   background-color: var(--static);
-  color: white;
+  color: var(--text);
   border: 2px solid transparent;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-
 }
 
-a.btn-cancel:hover{
+a.btn-cancel:hover {
   background-color: var(--secondary);
 }
 
 button {
   cursor: pointer;
+}
+
+.no-manga-txt{
+  text-align: center;
+  color: var(--text);
+  position: absolute;
+  top: 100px;
+}
+
+.no-manga-txt {
+  text-align: center;
+  color: var(--text);
+  position: absolute;
+  top: 200px;
+  font-style: italic;
 }
