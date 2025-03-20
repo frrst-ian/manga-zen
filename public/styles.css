@@ -495,9 +495,72 @@ main.wrapper.manga-form > .alert {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
+  padding: 50px;
+  gap: 8px;
+  text-align: center;
+  position: relative;
 }
 
-input {
+.manga-desc {
+  width: 350px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.manga-cover > img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+h2.manga-title {
+  font-size: 1.5rem;
+}
+
+.manga-list-filtered > div {
+  border: 2px solid;
+  padding: 40px;
+  border-radius: 6px;
+  box-shadow: 0 4px 18px 4px rgb(255 255 255 / 60%);
+  position: relative;
+}
+
+a#update-link > img,
+a#delete-link > img {
+  height: 30px;
+  width: 30px;
+}
+
+.bg-wrapper {
+  display: flex;
+  gap: 12px;
+  background-color: rgb(250, 250, 249, 0.7);
+  justify-content: flex-end;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  border-radius: 5px;
+  border: 4px solid transparent;
+}
+
+.author-wrapper {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  margin-left: 5px;
+}
+
+input,
+textarea#description {
   border: 2px solid transparent;
   padding: 2px 8px 2px 8px;
   border-radius: 0.5rem;
@@ -507,11 +570,15 @@ input {
     background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
   color: var(--text);
   background-color: var(--static);
+  resize: none;
 }
 
 input:hover,
 input:focus,
-.form-group:hover input {
+textarea:focus,
+text-area:hover,
+.form-group:hover input,
+.form-group:hover textarea {
   outline: none;
   border-color: var(--accent);
 }
@@ -550,7 +617,7 @@ button {
   cursor: pointer;
 }
 
-.no-manga-txt{
+.no-manga-txt {
   text-align: center;
   color: var(--text);
   position: absolute;

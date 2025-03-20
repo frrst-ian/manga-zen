@@ -8,27 +8,29 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="logo"></div>
-        <div class="nav-margin"></div>
-        <%- include('navbar', {links:links}) %>
-      </div>
+      <div class="navbar"><%- include('navbar', {links:links}) %></div>
     </header>
-    <div class="manga-list-filtered">
-      <div>
-        <img
-          class="img"
-          src="<%= manga.image_path%>"
-          alt="<%= manga.name %> cover photo"
-        />
-        <h2><%= manga.name %></h2>
-        <a href="/manga/<%= manga.id %>/update">Update</a>
-        <a href="/manga/<%= manga.id %>/delete/confirm">Delete</a>
+    <main class="manga-list-filtered">
+      <div class="manga-filtered-wrapper">
+        <div class="manga-cover">
+          <img
+            class="img"
+            src="<%= manga.image_path%>"
+            alt="<%= manga.name %> cover photo"
+          />
+          <h2 class="manga-title"><%= manga.name %></h2>
+          <div class="bg-wrapper">
+            <a id="update-link" href="/manga/<%= manga.id %>/update"><img src="/edit-2-svgrepo-com.png" alt="edit-icon"></a>
+            <a id="delete-link" href="/manga/<%= manga.id %>/delete/confirm"><img src="/delete.png" alt="delete-icon"></a>
+          </div>
+        </div>
+        <div><%= manga.published_year%></div>
+        <div class="manga-desc">
+          <div><p><%= manga.description%></p></div>
+          <div class="author-wrapper"><img src="/user.png" alt="author-icon"><%= manga.authors%></div>
+          <div><p class="manga-txt">Genre: <%= manga.genres%></p></div>
+        </div>
       </div>
-      <div><%= manga.published_year%></div>
-      <div><%= manga.description%></div>
-      <div>Author: <%= manga.authors%></div>
-      <div>Genre: <%= manga.genres%></div>
-    </div>
+    </main>
   </body>
 </html>
