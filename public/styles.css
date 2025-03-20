@@ -631,3 +631,33 @@ button {
   top: 200px;
   font-style: italic;
 }
+
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #1e293b;
+  color: var(--text);
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+ }
+
+ .card-button > a {
+  color: var(--text);
+  
+ }
+
+ .img-wrapper.b:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+  display: flex;
+  gap: 12px;
+  width: 200px;
+  justify-content: center;
+}
