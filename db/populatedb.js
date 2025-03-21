@@ -60,10 +60,10 @@ INSERT INTO manga_books (name, published_year, description , image_path) VALUES
 
 
 INSERT INTO manga_authors (id, author_id) VALUES
-(1, 2),  -- Berserk -> Kento Miura
-(2, 1),  -- Vinland Saga -> Makoto Yukimura
-(3, 3),  -- Vagabond -> Takehiko Inoue
-(4, 4),  -- JoJo -> Hirohiko Araki
+(1, 2), 
+(2, 1),  
+(3, 3),  
+(4, 4), 
 (5, 5);  
 
 
