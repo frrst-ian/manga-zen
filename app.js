@@ -38,11 +38,6 @@ app.use("/genres", genresRouter);
 app.use("/add-manga", addMangaRouter);
 app.use("/add-genre", addGenreRouter);
 
-const uploadDir = path.join(__dirname, 'public/manga/images');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
-
 // Error handling
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {

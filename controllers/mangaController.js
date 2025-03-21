@@ -72,7 +72,7 @@ async function updateMangaHandler(req, res) {
         // If the password is correct, update the manga
         let image_path = null;
         if (req.file) {
-            image_path = `/manga/images/${req.file.filename}`;
+            image_path = req.file.secure_url;
         }
 
         await db.mangaUpdate(id, name, published_year, description, image_path, genres, author_name);

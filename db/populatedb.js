@@ -56,7 +56,7 @@ INSERT INTO manga_books (name, published_year, description , image_path) VALUES
 ('Vinland Saga', 2005, 'Historical manga about Thorfinn''s Viking adventures...', '/manga/images/vinland.jpg'),
 ('Vagabond', 1998, 'Epic martial arts manga about Musashi Miyamoto...', '/manga/images/vagabond.jpg'),
 ('JoJo''s Bizarre Adventure', 1987, 'Multi-generational supernatural adventure series...', '/manga/images/jojo.jpg'),
-('The Climber', 2007, 'Story about mountain climbing and personal growth...','/manga/images/climber.jpg');
+('The Climber', 2007, 'Story about mountain climbing and personal growth...','https://res.cloudinary.com/dbzpmzf05/image/upload/v1742565423/manga-zen/manga-1742565417997.jpg');
 
 
 INSERT INTO manga_authors (id, author_id) VALUES
