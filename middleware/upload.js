@@ -10,18 +10,18 @@ cloudinary.config({
 });
 
 const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'manga-zen',
-    format: async (req, file) => {
-      const extension = file.mimetype.split('/')[1];
-      return extension;
-    },
-    public_id: (req, file) => {
-      return `manga-${Date.now()}`;
+    cloudinary: cloudinary,
+    params: {
+      folder: 'manga-zen',
+      format: async (req, file) => {
+        const extension = file.mimetype.split('/')[1];
+        return extension;
+      },
+      public_id: (req, file) => {
+        return `manga-${Date.now()}`;
+      }
     }
-  }
-});
+  });
 
 const fileFilter = (req, file, cb) => {
   const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
