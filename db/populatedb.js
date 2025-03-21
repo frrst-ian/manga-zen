@@ -56,7 +56,7 @@ INSERT INTO manga_books (name, published_year, description , image_path) VALUES
 ('Vinland Saga', 2005, 'Historical manga about Thorfinn''s Viking adventures...', '/manga/images/vinland.jpg'),
 ('Vagabond', 1998, 'Epic martial arts manga about Musashi Miyamoto...', '/manga/images/vagabond.jpg'),
 ('JoJo''s Bizarre Adventure', 1987, 'Multi-generational supernatural adventure series...', '/manga/images/jojo.jpg'),
-('The Climber', 2007, 'Story about mountain climbing and personal growth...','/manga/climber.jpg');
+('The Climber', 2007, 'Story about mountain climbing and personal growth...','/manga/images/climber.jpg');
 
 
 INSERT INTO manga_authors (id, author_id) VALUES
@@ -64,7 +64,7 @@ INSERT INTO manga_authors (id, author_id) VALUES
 (2, 1),  -- Vinland Saga -> Makoto Yukimura
 (3, 3),  -- Vagabond -> Takehiko Inoue
 (4, 4),  -- JoJo -> Hirohiko Araki
-(5, 5);  -- The Climber -> Jiro Nitta
+(5, 5);  
 
 
 INSERT INTO manga_genres (id, genre_id) VALUES
