@@ -1,5 +1,6 @@
 const db = require("../db/queries");
 
+
 async function addMangaHandler(req, res) {
     try {
         const { name, published_year, description, genres, author_name } = req.body;
@@ -7,7 +8,7 @@ async function addMangaHandler(req, res) {
         // Check if manga already exists
         const mangaExist = await db.checkMangaExist(name);
         if (!mangaExist) {
-            const image_path = `/manga/images/${req.file.filename}`;
+           const image_path = req.file.path; 
             await db.addManga(name, published_year, description, image_path, genres, author_name);
             res.redirect("/");
         } else {

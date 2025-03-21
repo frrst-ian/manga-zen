@@ -5,6 +5,8 @@ require("dotenv").config();
 const express = require("express");
 const multer = require('multer');
 const path = require("node:path");
+const fs = require('fs');
+
 
 // Get express method
 const app = express();
@@ -35,6 +37,11 @@ app.use("/manga", mangaRouter);
 app.use("/genres", genresRouter);
 app.use("/add-manga", addMangaRouter);
 app.use("/add-genre", addGenreRouter);
+
+const uploadDir = path.join(__dirname, 'public/manga/images');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 // Error handling
 app.use((err, req, res, next) => {
