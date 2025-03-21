@@ -56,12 +56,12 @@ INSERT INTO genres (genre_name) VALUES
 ('Horror');
 
 -- Insert manga books
-INSERT INTO manga_books (name, published_year, image_path, description) VALUES
-('Berserk', 1989, '/manga/images/berserk.jpg', 'Dark fantasy manga following Guts'' journey...'),
-('Vinland Saga', 2005, '/manga/images/vinland.jpg', 'Historical manga about Thorfinn''s Viking adventures...'),
-('Vagabond', 1998, '/manga/images/vagabond.jpg', 'Epic martial arts manga about Musashi Miyamoto...'),
-('JoJo''s Bizarre Adventure', 1987, '/manga/images/jojo.jpg', 'Multi-generational supernatural adventure series...'),
-('The Climber', 2007, '/manga/climber.jpg', 'Story about mountain climbing and personal growth...');
+INSERT INTO manga_books (name, published_year, description , image_path) VALUES
+('Berserk', 1989, 'Dark fantasy manga following Guts'' journey...','/manga/images/berserk.jpg'),
+('Vinland Saga', 2005, 'Historical manga about Thorfinn''s Viking adventures...', '/manga/images/vinland.jpg'),
+('Vagabond', 1998, 'Epic martial arts manga about Musashi Miyamoto...', '/manga/images/vagabond.jpg'),
+('JoJo''s Bizarre Adventure', 1987, 'Multi-generational supernatural adventure series...', '/manga/images/jojo.jpg'),
+('The Climber', 2007, 'Story about mountain climbing and personal growth...','/manga/climber.jpg');
 
 
 INSERT INTO manga_authors (id, author_id) VALUES
