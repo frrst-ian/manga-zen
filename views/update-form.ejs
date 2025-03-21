@@ -3,95 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css">
     <title><%= title %> | Manga Zen</title>
   </head>
   <body>
-    <% if (errorMessage) { %>
-      <%- include('partials/error-message', {
-        errorMessage: errorMessage,
-        redirectUrl: redirectUrl
-      }) %>
-    <% } %>
-    <div class="main">
-      <h1><%= title %></h1>
-    </div>
-    <form
-      method="POST"
-      action="/manga/<%= manga.id %>/update"
-      enctype="multipart/form-data"
-    >
-      <div class="form-group">
-        <label for="name"> Manga Name </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value="<%= manga.name%>"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="published_year">Published Year</label>
-        <input
-          type="text"
-          name="published_year"
-          id="published_year"
-          value="<%= manga.published_year%>"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          type="text"
-          name="description"
-          value="<%= manga.description%>"
-          id="description"
-        />
-      </div>
-
-      <div class="form-group">
-        <label>Genres:</label>
-        <div class="genres-container">
-          <% genres.forEach(genre => { %>
-          <label class="genre-checkbox">
-            <input type="checkbox" name="genres[]" value="<%= genre.genre_name
-            %>"
-            <% if (manga.genres && manga.genres.includes(genre.genre_name)) { %>checked<% } %>>
-            <%= genre.genre_name %>
-          </label>
-          <% }); %>
+    <main class="wrapper update-form">
+      <% if (errorMessage) { %>
+        <%- include('partials/error-message', {
+          errorMessage: errorMessage,
+          redirectUrl: redirectUrl
+        }) %>
+      <% } %>
+      <h1 class="update-form-title"><%= title %></h1>
+      <form
+        method="POST"
+        action="/manga/<%= manga.id %>/update"
+        enctype="multipart/form-data"
+        class="update-wrapper"
+      >
+        <div class="form-group">
+          <label for="name"> Manga Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value="<%= manga.name%>"
+            required
+          />
         </div>
-      </div>
-
-      <div class="form-group">
-        <label for="image_path">Cover Photo</label>
-        <input type="file" name="image_path" id="image_path" accept="image/*" />
-        <img src="<%= manga.image_path%> " alt="">
-        <small
-          >Max size 5MB. Accepted formats: JPG, JPEG, PNG. Leave empty to keep
-          current image.</small
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="author_name">Author Name</label>
-        <input
-          type="text"
-          name="author_name"
-          id="author_name"
-          value="<%= manga.authors %>"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Enter password to confirm update:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
-      <button type="submit" class="btn btn-primary">Update</button>
-      <a href="/">Cancel</a>
-    </form>
+        <div class="form-group">
+          <label for="image_path">Cover Photo</label>
+          <input type="file" name="image_path" id="image_path" accept="image/*" />
+          <small
+            >Max size 5MB. Accepted formats: JPG, JPEG, PNG. Leave empty to keep
+            current image.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="published_year">Published Year:</label>
+          <input
+            type="text"
+            name="published_year"
+            id="published_year"
+            value="<%= manga.published_year%>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea rows="4" name="description" id="description"><%= manga.description %> </textarea>
+        </div>
+        <div class="form-group">
+          <label>Genres:</label>
+          <div class="genres-container">
+            <% genres.forEach(genre => { %>
+            <label class="genre-checkbox">
+              <input type="checkbox" name="genres[]" value="<%= genre.genre_name
+              %>"
+              <% if (manga.genres && manga.genres.includes(genre.genre_name)) { %>checked<% } %>>
+              <%= genre.genre_name %>
+            </label>
+            <% }); %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="author_name">Author Name:</label>
+          <input
+            type="text"
+            name="author_name"
+            id="author_name"
+            value="<%= manga.authors %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Enter password to confirm update:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group last">
+          <button class="btn btn-primary" type="submit" class="btn btn-primary">Update</button>
+          <a class="btn-cancel" href="/manga">Cancel</a>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

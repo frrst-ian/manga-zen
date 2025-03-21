@@ -318,6 +318,7 @@ main.manga {
   transition: 0.5s ease-out;
   overflow: visible;
   position: relative;
+  height: 570px;
 }
 
 .manga-item:hover {
@@ -401,7 +402,8 @@ main.genres {
 }
 
 h1.manga-form-title,
-h1.genre-form-title {
+h1.genre-form-title,
+h1.update-form-title {
   font-size: 2.5rem;
 }
 
@@ -415,7 +417,8 @@ main.wrapper.manga-form {
   width: 100%;
 }
 
-form.manga-wrapper {
+form.manga-wrapper,
+.update-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -503,7 +506,7 @@ main.wrapper.manga-form > .alert {
 }
 
 .manga-desc {
-  width: 350px;
+  width: 360px;
   text-align: left;
   display: flex;
   justify-content: center;
@@ -640,20 +643,19 @@ button {
   background-color: #1e293b;
   color: var(--text);
   font-size: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   left: 50%;
   bottom: 0;
   opacity: 0;
   transition: 0.3s ease-out;
- }
+}
 
- .card-button > a {
+.card-button > a {
   color: var(--text);
-  
- }
+}
 
- .img-wrapper.b:hover .card-button {
+.img-wrapper.b:hover .card-button {
   transform: translate(-50%, 50%);
   opacity: 1;
   display: flex;
@@ -662,7 +664,12 @@ button {
   justify-content: center;
 }
 
-main.wrapper.delete-confirm {
+main.wrapper.update-form {
+  margin-top: 28px;
+}
+
+main.wrapper.delete-confirm,
+main.wrapper.update-form {
   height: 700px;
   width: 100%;
   display: flex;
