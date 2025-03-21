@@ -2,11 +2,6 @@
 const { Client } = require("pg");
 require("dotenv").config();
 const SQL = `
-DROP TABLE IF EXISTS manga_genres CASCADE;
-DROP TABLE IF EXISTS manga_authors CASCADE;
-DROP TABLE IF EXISTS manga_books CASCADE;
-DROP TABLE IF EXISTS authors CASCADE;
-DROP TABLE IF EXISTS genres CASCADE;
 CREATE TABLE authors (
     author_id SERIAL PRIMARY KEY,
     author_name VARCHAR(255) NOT NULL
