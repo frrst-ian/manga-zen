@@ -72,7 +72,9 @@ async function updateMangaHandler(req, res) {
         // If the password is correct, update the manga
         let image_path = null;
         if (req.file) {
-            image_path = req.file.secure_url;
+            image_path = req.file.secure_url || req.file.path;;
+            console.log('Update - Cloudinary URL:', image_path);
+            console.log('Update - Full File Info:', req.file);
         }
 
         await db.mangaUpdate(id, name, published_year, description, image_path, genres, author_name);

@@ -8,7 +8,10 @@ async function addMangaHandler(req, res) {
         // Check if manga already exists
         const mangaExist = await db.checkMangaExist(name);
         if (!mangaExist) {
-           const image_path =  req.file.secure_url ; 
+           const image_path =  req.file.secure_url ||  req.file.path; ; 
+           console.log('Cloudinary Upload Result:', req.file);
+           console.log('Generated Image Path:', image_path);
+   
             await db.addManga(name, published_year, description, image_path, genres, author_name);
             res.redirect("/");
         } else {
