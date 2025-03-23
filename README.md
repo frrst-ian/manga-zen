@@ -25,7 +25,7 @@ Click here: [https://manga-zen.onrender.com/](https://manga-zen.onrender.com/)
 
 <div align='center'>
 <img src='/public/183_1x_shots_so.png' alt='Screenshot of desktop design'>
-<img src='/377_1x_shots_so.png' alt='Screenshot of mobile design'>
+<img src='/public/377_1x_shots_so.png' alt='Screenshot of mobile design'>
 </div>
 
 ## Features
