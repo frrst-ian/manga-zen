@@ -12,7 +12,7 @@
 
 ## Description
 
-Manga Zen is a manga inventory, manage all your favorite manga in one place. The primary objective of this project was to practice myself in using NodeJs and ExpressJS, and PostgresSQL. This allowed me to improve my skills in organizing the codebase and managing a database.  
+Manga Zen is a manga inventory, manage all your favorite manga in one place. The primary objective of this project was to practice and enhance my skills in using NodeJs and ExpressJS, and PostgresSQL. This allowed me to improve my knowledge in organizing the codebase and managing the database.  
 
 This app has two main features: manga page and the genre page. User can view all the manga in the manga page, and view all genres in the genre page. This app also allows users to view a manga in a specific genre.
 
