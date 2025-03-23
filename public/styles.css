@@ -731,3 +731,166 @@ form.delete-form {
 .manga-list.genre > .manga-item {
   min-width: 330px;
 }
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .navbar ul {
+    gap: 28px;
+  }
+  
+  main.home {
+    flex-direction: column;
+    padding-top: 80px;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  section.left {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  section.right {
+    margin: 20px;
+  }
+  
+  .wrapper {
+    width: 100%;
+    max-width: 630px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+    height: auto;
+  }
+  
+  .manga-list {
+    justify-content: center;
+    padding: 70px 20px;
+  }
+  
+  .manga-item {
+    flex: 0 1 calc(33.333% - 20px);
+  }
+  
+  .manga-filtered-wrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  .navbar {
+    padding: 10px;
+  }
+  
+  .navbar ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  main.home {
+    flex-direction: column;
+  }
+  
+  section.left {
+    margin: 80px 20px 20px;
+    text-align: center;
+  }
+  
+  section.right {
+    display: none;
+  }
+  
+  .manga-list {
+    padding: 80px 10px 20px;
+  }
+  
+  .manga-item {
+    flex: 0 1 100%;
+    height: auto;
+    max-width: 300px;
+  }
+  
+  .manga-item img {
+    height: 320px;
+  }
+  
+  .genre-list {
+    margin-top: 100px;
+    text-align: center;
+  }
+  
+  main.wrapper.manga-form,
+  main.wrapper.genre-form,
+  main.wrapper.delete-confirm,
+  main.wrapper.update-form {
+    padding: 20px;
+    margin-top: 80px;
+  }
+  
+  form.manga-wrapper,
+  form.genre-wrapper,
+  form.delete-form,
+  .update-wrapper {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .manga-list-filtered {
+    padding: 80px 10px 20px;
+  }
+  
+  .manga-filtered-wrapper {
+    padding: 20px !important;
+  }
+  
+  .manga-cover > img {
+    height: 420px;
+  }
+  
+  .manga-desc {
+    width: 100%;
+  }
+  
+  .bg-wrapper {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .form-group.last {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button.btn.btn-primary,
+  a.btn-cancel {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar ul {
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .alert {
+    width: 90%;
+    min-width: auto;
+    left: 5%;
+  }
+}
