@@ -38,7 +38,7 @@ Click here: [https://manga-zen.onrender.com/](https://manga-zen.onrender.com/)
 - View all  the manga.
 - View all the genres.
 - View a manga in a specific genre.
-- Utilizes postgres to manage the all the data.
+- Utilizes postgres to manage all the data.
 
 ## Technologies Used
 
