@@ -727,3 +727,7 @@ form.delete-form {
 .btn-explore :hover {
   color: black;
 }
+
+.manga-list.genre > .manga-item {
+  min-width: 330px;
+}
