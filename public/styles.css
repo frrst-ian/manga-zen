@@ -126,7 +126,8 @@ small {
   font-size: 0.75rem; /* 12px */
 }
 
-a {
+a,
+.btn-explore > a {
   text-decoration: none;
 }
 
@@ -142,7 +143,6 @@ a {
 }
 
 a.header-text {
-  color: var(--text);
   position: relative;
 }
 
@@ -338,10 +338,16 @@ main.manga {
 .manga-item h2 {
   font-size: 1.2rem;
   margin: 10px 0;
-  color: var(--text);
 }
 
-.manga-item p {
+.manga-item p,
+.btn-explore > a,
+.manga-item h2,
+.genres-item > a,
+.alert,
+a.header-text,
+input,
+textarea#description {
   color: var(--text);
 }
 
@@ -376,7 +382,6 @@ main.genres {
 
 .genres-item > a {
   font-size: 1.7rem;
-  color: var(--text);
 }
 
 .genre-list a.effect-shine:hover {
@@ -463,7 +468,6 @@ main.wrapper.genre-form {
   border: 1px solid #ffeb3b;
   border-radius: 4px;
   background-color: var(--static);
-  color: var(--text);
   position: absolute;
   top: 100px;
 
@@ -571,7 +575,6 @@ textarea#description {
   transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
     color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
     background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
-  color: var(--text);
   background-color: var(--static);
   resize: none;
 }
@@ -684,4 +687,43 @@ form.delete-form {
   flex-direction: column;
   gap: 24px;
   margin-bottom: 44px;
+}
+
+.btn-explore {
+  width: 130px;
+  height: 40px;
+  margin: 12px 0px 0px 0px;
+  background: var(--secondary);
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-explore:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.btn-explore:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-explore :hover {
+  color: black;
 }
