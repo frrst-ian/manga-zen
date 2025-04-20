@@ -90,7 +90,6 @@ async function main() {
 
   try {
     await client.connect();
-    await client.query(SQL);
     console.log("Database seeded successfully");
   } catch (err) {
     console.error("Error seeding database:", err);
