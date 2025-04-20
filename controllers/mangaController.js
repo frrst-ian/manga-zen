@@ -13,6 +13,8 @@ async function getAllMangaHandler(req, res) {
             res.status(404).send("Manga not found");
         }
     } catch (err) {
+        console.error("Error fetching manga:", err.message);
+        console.error("Error stack:", err.stack);
         console.error("Error fetching manga", err)
         res.status(500).send("Internal server error");
     }
